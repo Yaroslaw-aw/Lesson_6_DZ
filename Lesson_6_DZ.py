@@ -55,21 +55,25 @@ def prostoe(n: int):
                 break
         if simple_number == True:
             prostie_chisla.append(i)
-    return prostie_chisla[len(prostie_chisla) - 1]
+    return prostie_chisla
+
 
 def drobi():
     k = int(input('Минимальный знаменатель: '))
+    simple = prostoe(k)
     n = 1
     while n < k: 
         m = 2       
         while m <= k:                        
             if m / n > 1:
-                if prostoe(n) % 2 == 0 and prostoe(m) % 2 == 0:
-                    m += 1
-                    continue                                    
                 if n == 1:
-                    print(f'{n}/{m}')                 
+                    print(f'{n}/{m}')
+                for i in simple:
+                    if n % i == 0 and m % i == 0:
+                        m += 1
+                        continue
                 if m % n != 0: 
                     print(f'{n}/{m}')                    
             m += 1
         n += 1
+  
