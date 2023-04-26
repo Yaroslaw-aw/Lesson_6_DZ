@@ -56,13 +56,7 @@ def drobi():
                     continue                                
                 if n == 1:
                     print(f'{n}/{m}')                 
-                if m % n != 0:                   
-                    if n > 2 and n % 2 == 0 and m % 2 != 0:
-                        print(f'{n}/{m}')
-                    if n == 2 and m % 2 != 0:
-                        print(f'{n}/{m}') 
-                    if n % 2 == 1:
-                        print(f'{n}/{m}') 
-                    
+                if m % n != 0: 
+                    print(f'{n}/{m}')                    
             m += 1
         n += 1
