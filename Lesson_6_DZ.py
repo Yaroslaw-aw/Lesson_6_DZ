@@ -42,18 +42,31 @@ def massiv():
 # Задача 3. Найдите все простые несократимые дроби,
 # лежащие между 0 и 1, знаменатель которых не превышает 11.
 
+def prostoe(n: int):
+    prostie_chisla = [2]
+    for i in range(3, n + 1, 2):
+        simple_number = True
+        q = int(n**0.5) + 2
+        for j in prostie_chisla:
+            if j > q:
+                break
+            if i % j == 0:
+                simple_number = False
+                break
+        if simple_number == True:
+            prostie_chisla.append(i)
+    return prostie_chisla[len(prostie_chisla) - 1]
+
 def drobi():
+    k = int(input('Минимальный знаменатель: '))
     n = 1
-    while n < 11: 
+    while n < k: 
         m = 2       
-        while m <= 11:                        
+        while m <= k:                        
             if m / n > 1:
-                if n % 2 == 0 and m % 2 == 0:
+                if prostoe(n) % 2 == 0 and prostoe(m) % 2 == 0:
                     m += 1
-                    continue
-                if n % 3 == 0 and m % 3 == 0:
-                    m += 1
-                    continue                                
+                    continue                                    
                 if n == 1:
                     print(f'{n}/{m}')                 
                 if m % n != 0: 
