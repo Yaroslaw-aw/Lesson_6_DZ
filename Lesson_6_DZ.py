@@ -46,16 +46,23 @@ def drobi():
     n = 1
     while n < 11: 
         m = 2       
-        while m <= 11:
+        while m <= 11:                        
             if m / n > 1:
+                if n % 3 == 0 and m % 3 == 0:
+                    m += 1
+                    continue 
+                if n % 2 == 0 and m % 2 == 0:
+                    m += 1
+                    continue                
                 if n == 1:
-                    print(f'{n}/{m}') 
-                if m % n != 0:
+                    print(f'{n}/{m}')                 
+                if m % n != 0:                   
                     if n > 2 and n % 2 == 0 and m % 2 != 0:
                         print(f'{n}/{m}')
                     if n == 2 and m % 2 != 0:
                         print(f'{n}/{m}') 
                     if n % 2 == 1:
                         print(f'{n}/{m}') 
+                    
             m += 1
         n += 1
